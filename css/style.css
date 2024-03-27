@@ -23,6 +23,7 @@
   --big-font: 5rem;
   --h2-font: 3rem;
   --p-font: 1.1rem;
+  --h3-font: 2rem;
 }
 #modelviewer {
   height: 500px;
@@ -47,6 +48,7 @@ body {
 
 header h1 {
   margin-right: 50%;
+  font-size: var(--h3-font);
 }
 header {
   position: fixed;
@@ -529,13 +531,7 @@ header.sticky {
     width: 95%;
     transition: 0.3s;
   }
-  :root {
-    --big-font: 3rem;
-    --h2-font: 3rem;
-    --p-font: 1rem;
-    --h3-font: 3rem;
-    transition: 0.3s;
-  }
+
   .home {
     padding-left: 150px;
   }
@@ -620,6 +616,10 @@ header.sticky {
 }
 
 @media (max-width: 970px) {
+  header h1 {
+    margin-right: 50%;
+    font-size: var(--p-font);
+  }
   #menu-icon {
     display: block;
   }
