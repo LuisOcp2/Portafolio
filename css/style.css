@@ -44,8 +44,9 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
 header h1 {
-  margin-right: 720px;
+  margin-right: 50%;
 }
 header {
   position: fixed;
@@ -60,6 +61,7 @@ header {
   padding: 30px 18%;
   transition: 0.3s;
 }
+
 .logo img {
   max-width: 100%;
   width: 130px;
