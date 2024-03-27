@@ -621,6 +621,9 @@ header.sticky {
   #menu-icon {
     display: block;
   }
+  .home-img {
+    display: none;
+  }
   .home {
     min-height: 80vh;
   }
@@ -678,8 +681,6 @@ header.sticky {
     padding-top: 55px;
   }
   .home-img {
-    width: 200px;
-    margin: 0;
     display: none;
   }
   .home-img img {
@@ -715,6 +716,9 @@ header.sticky {
 @media (max-width: 540px) {
   .contact .action form input[type="email"] {
     width: 310px;
+  }
+  .home-img {
+    display: none;
   }
 }
 @media (max-width: 500px) {
@@ -877,5 +881,8 @@ header.sticky {
   .social a {
     margin-top: 30px;
     margin-right: 20px;
+  }
+  .home-img {
+    display: none;
   }
 }
