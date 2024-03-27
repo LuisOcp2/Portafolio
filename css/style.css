@@ -8,12 +8,12 @@
   scroll-behavior: smooth;
 }
 :root {
-  --bg-color: #00201e;
-  --text-color: #70f7ee;
-  --secound-color: #00201e;
-  --primary: #95ccff;
-  --secondary-color: #004d64;
-  --main-color: #00504c;
+  --bg-color: #21251f;
+  --text-color: #eeffed;
+  --secound-color: #4e515c;
+  --primary: #c8f560;
+  --secondary-color: #7862f8;
+  --main-color: #7862f8;
   --big-font: 5rem;
   --h2-font: 3rem;
   --p-font: 1.1rem;
@@ -101,8 +101,8 @@ header {
 }
 .top-btn:hover {
   transform: scale(1.1);
-  background: var(--main-color);
-  border: 2px solid var(--main-color);
+  background: var(--primary);
+  border: 2px solid var(--primary);
   color: var(--bg-color);
 }
 
@@ -164,9 +164,6 @@ span {
   background: var(--main-color);
   transition: 0.5s;
 }
-.btn-secondary {
-  background: black;
-}
 .btn {
   display: inline-block;
   color: var(--text-color);
@@ -180,8 +177,8 @@ span {
 }
 .btn:hover {
   transform: scale(1.1);
-  background: #004d64;
-  color: #bde9ff;
+  background: var(--primary);
+  color: var(--text-color);
 }
 .home-img img {
   max-width: 100%;
@@ -439,7 +436,7 @@ header.sticky {
 }
 
 .contact {
-  background: #00504c;
+  background: var(--secondary-color);
   width: 64%;
   margin: 100px auto;
   padding: 70px 150px;
@@ -478,13 +475,15 @@ header.sticky {
   padding: 12px 40px;
   background: var(--secondary-color);
   color: var(--text-color);
-  border: none;
+  border: 2px solid var(--primary);
   outline: none;
   margin: 0 10px 20px 0;
   border-radius: 30px;
   cursor: pointer;
 }
-
+.contact .action form input[type="submit"]:hover {
+  background-color: var(--primary);
+}
 .ends {
   text-align: center;
   padding: 40px;
@@ -493,7 +492,88 @@ header.sticky {
   font-size: var(--p-font);
   letter-spacing: 1px;
 }
+@media (max-width: 1920px) {
+  header {
+    padding: 15px 8%;
 
+    transition: 0.3s;
+  }
+  .navlist a {
+    font-size: var(--p-font);
+    color: var(--text-color);
+    font-size: 25px;
+    font-weight: 300;
+    padding: 10px 27px;
+  }
+  header.sticky {
+    padding: 10px 3%;
+    transition: 0.3s;
+  }
+  section {
+    padding: 70px 3%;
+    transition: 0.3s;
+  }
+  .contact {
+    width: 95%;
+    transition: 0.3s;
+  }
+  :root {
+    --big-font: 3rem;
+    --h2-font: 3rem;
+    --p-font: 1rem;
+    --h3-font: 3rem;
+    transition: 0.3s;
+  }
+  .home {
+    padding-left: 150px;
+  }
+  .home h3 {
+    font-size: 50px;
+    font-weight: 200;
+    margin-bottom: 3px;
+    color: var(--text-color);
+  }
+  .home h1 {
+    font-size: 150px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: var(--text-color);
+  }
+  .home h5 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: var(--text-color);
+  }
+  .home p {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--text-color);
+  }
+  .sub-box {
+    border-radius: 10px;
+    padding: 30px 30px 30px 30px;
+  }
+  .service-content {
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    grid-gap: 1rem;
+    align-items: center;
+    margin-top: 5rem;
+  }
+  .p4row {
+    padding: 10px;
+    margin-top: 20px;
+  }
+  .row {
+    display: grid;
+    grid-template-rows: 50px 80px 300px 50px;
+    justify-items: center;
+  }
+  .row h3 {
+    padding: 20px;
+  }
+}
 @media (max-width: 1425px) {
   header {
     padding: 16px 3%;
@@ -593,7 +673,7 @@ header.sticky {
     --h2-font: 2rem;
   }
   section {
-    padding: 65px 3%;
+    padding: 100px 10%;
     transition: 0.3s;
   }
 }
