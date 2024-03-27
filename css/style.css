@@ -6,12 +6,6 @@
   list-style: none;
   text-decoration: none;
   scroll-behavior: smooth;
-  -moz-transform: scale(1);
-  -moz-user-select: none;
-  -webkit-transform: scale(1);
-  -webkit-user-select: none;
-  -ms-transform: scale(1);
-  -ms-user-select: none;
 }
 :root {
   --bg-color: #21251f;
@@ -616,6 +610,9 @@ header.sticky {
 }
 
 @media (max-width: 970px) {
+  .navlist li {
+    position: fixed;
+  }
   header h1 {
     margin-right: 50%;
     font-size: var(--p-font);
@@ -725,7 +722,7 @@ header.sticky {
 }
 @media (max-width: 500px) {
   header {
-    padding: 10px;
+    padding-top: 10px;
   }
 
   .home {
