@@ -610,9 +610,6 @@ header.sticky {
 }
 
 @media (max-width: 970px) {
-  .navlist li {
-    position: fixed;
-  }
   header h1 {
     margin-right: 50%;
     font-size: var(--p-font);
