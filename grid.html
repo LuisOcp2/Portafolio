@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./grid.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+    <title>Grid</title>
+  </head>
+  <sect>
+    <header class="nav">
+      <div class="nav-left">
+        <h3>LMOG</h3>
+      </div>
+      <div class="nav-right">
+        <div class="menu-toggle" id="mobile-menu">
+          <i class="bx bx-menu"></i>
+        </div>
+        <nav class="nav-menu" id="nav-menu">
+          <a href="#home">Inicio</a>
+          <a href="#about">Acerca de</a>
+          <a href="#services">Servicios</a>
+          <a href="#contact">Contacto</a>
+        </nav>
+      </div>
+    </header>
+    <main class="banner" id="home">
+      <section class="b-left">
+        <div class="home-text">
+          <h3>Hello, I'm</h3>
+          <h1>Luis Ocampo</h1>
+          <h5>A Creative Developer <span>From Colombia</span></h5>
+          <p>
+            creative developer based in Colombia, and I'm very passionate and
+            dedicated to my work.
+          </p>
+          <div class="social">
+            <a
+              href="https://twitter.com/i/flow/login?redirect_after_login=%2Fguerrero_l97710"
+              ><i class="bx bxl-twitter"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/luis-miguel-ocampo-guerrero-293223234"
+              ><i class="bx bxl-linkedin"></i
+            ></a>
+            <a href=""><i class="bx bxl-github"></i></a>
+          </div>
+          <a href="#about" class="btn">About Me</a>
+        </div>
+      </section>
+      <section class="b-right">
+        <model-viewer
+          id="modelviewer"
+          alt="Ready Player Me Avatar"
+          src="./exportaran.glb"
+          autoplay
+          shadow-intensity="3"
+          camera-orbit="5deg 80deg 3.7m"
+        ></model-viewer>
+      </section>
+    </main>
+    <section class="sub-service">
+      <div class="items">
+        <div class="sub-box">
+          <div class="sub-img">
+            <img src="img/target.svg" alt="Pixel Perfect" />
+          </div>
+          <h3>Pixel Perfect</h3>
+          <p>
+            Every visual detail is perfectly aligned and fits the resolution of
+            the user's screen.
+          </p>
+        </div>
+        <div class="sub-box">
+          <div class="sub-img">
+            <img src="./img/brush.svg" alt="High Quality" />
+          </div>
+          <h3>High Quality</h3>
+          <p>
+            Most common methods for designing websites that work well on desktop
+            is responsive and adaptive design.
+          </p>
+        </div>
+        <div class="sub-box">
+          <div class="sub-img">
+            <img src="img/energy.svg" alt="Awesome Idea" />
+          </div>
+          <h3>Awesome Idea</h3>
+          <p>
+            the spark that ignites the flame of the imagination and takes
+            curious minds beyond the established limits.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <div class="about-img">
+        <img src="img/about.svg" alt="About me" />
+      </div>
+      <div class="about-text">
+        <h3>I'm a Developer</h3>
+        <h2>I Can develop Anything You Want</h2>
+        <p>
+          Hello there! I'm a web Developer, and I'm very passionate and
+          dedicated to my work. I have acquired the skills and knowledge
+          necessary to make your project a success. I enjoy every step of the
+          design process, from discussion and collaboration.
+        </p>
+        <a href="#" class="btn">Hire Me</a>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <div class="heading">
+        <h3>Portfolio</h3>
+        <h2>My Amazing Work</h2>
+        <p>
+          Most common methods for designing websites that work well on desktop
+          is responsive and adaptive design
+        </p>
+      </div>
+      <div class="portfolio-content">
+        <div class="col" data-project="sistema-ventas">
+          <img
+            src="./img/proyectoSistemaVentasJava/Login.png"
+            alt="Sistema ventas Java"
+          />
+          <div class="layer">
+            <h3>Sistema ventas Java</h3>
+            <h5>Click to view gallery</h5>
+          </div>
+        </div>
+        <div class="col" data-project="gestion-clientes">
+          <img
+            src="./img/proyectoGestionClientes/LOGIN.png"
+            alt="Gestion de clientes java"
+          />
+          <div class="layer">
+            <h3>Gestion de clientes java</h3>
+            <h5>Click to view gallery</h5>
+          </div>
+        </div>
+        <div class="col" data-project="carrito-compras">
+          <img
+            src="./img/CarritoCompras/InicioBan.png"
+            alt="carrito de compras"
+          />
+          <div class="layer">
+            <h3>carrito de compras HTML,JS,TAILWIND CSS</h3>
+            <h5>Click to view gallery + demo</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Modal for image carousel -->
+    <div id="imageModal" class="modal">
+      <span class="close-modal">&times;</span>
+      <div class="modal-content">
+        <div class="swiper project-swiper">
+          <div class="swiper-wrapper" id="modalSwiper">
+            <!-- Slides will be added dynamically -->
+          </div>
+          <!-- Add navigation and pagination -->
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+        <a href="#" class="demo-btn" id="demoButton" target="_blank">View Live Demo</a>
+      </div>
+    </div>
+    <section class="service" id="services">
+      <div class="heading">
+        <h3>Service</h3>
+        <h2>As a programmer</h2>
+        <p>
+          I use JavaScript to create interaction; Vue for dynamic components;
+          HTML and CSS for structure and design, fusing technologies for
+          exceptional web experiences.
+        </p>
+      </div>
+      <div class="service-content">
+        <div class="card">
+          <div class="face front">
+            <img src="./img/html copy.svg" alt="HTML" />
+          </div>
+          <div class="face back">
+            <h3>HTML</h3>
+            <p>
+              Each HTML tag I write is like a fundamental building block that
+              contributes to the overall structure of the page. It's fascinating
+              to see how these tags combine to form a visual representation of
+              what you had in mind.
+            </p>
+            <div class="link">
+              <a href="https://overapi.com/html">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./img/JavaScript.svg" alt="JavaScript" />
+          </div>
+          <div class="face back">
+            <h3>JavaScript</h3>
+            <p>
+              I use JavaScript to create interactivity and dynamism in
+              applications and websites. From smooth animations to smart forms,
+              my code allows users to interact and enjoy smoother experiences.
+            </p>
+            <div class="link">
+              <a href="https://overapi.com/javascript">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./img/css3.svg" alt="CSS" />
+          </div>
+          <div class="face back">
+            <h3>CSS</h3>
+            <p>
+              My focus lies on bringing design to life. Through styles and
+              formats, I transform visual concepts into attractive web
+              interfaces.
+            </p>
+            <div class="link">
+              <a href="https://overapi.com/css">Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./img/4691382_java_icon.svg" alt="JAVA" />
+          </div>
+          <div class="face back">
+            <h3>JAVA</h3>
+            <p>
+              Passionate Java programmer. I build robust and scalable solutions
+              using this versatile language.
+            </p>
+            <div class="link">
+              <a href="https://overapi.com/java">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact-section">
+      <div class="contact-content">
+        <h3>Contact Me</h3>
+        <h2>Let's Work Together</h2>
+        <p>
+          Ready to start your project? Get in touch and let's create something
+          amazing together.
+        </p>
+        <a href="mailto:lmog240@gmail.com" class="btn">Email Me</a>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+       // Mobile menu toggle
+       document
+        .getElementById("mobile-menu")
+        .addEventListener("click", function () {
+          document.getElementById("nav-menu").classList.toggle("active");
+        });
+
+      // Close mobile menu when clicking on links
+      const navLinks = document.querySelectorAll(".nav-menu a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          document.getElementById("nav-menu").classList.remove("active");
+        });
+      });
+      
+      // Project images data
+      const projectImages = {
+        'sistema-ventas': [
+          {
+            src: './img/proyectoSistemaVentasJava/Login.png',
+            alt: 'Login Screen'
+          },
+          {
+            src: './img/proyectoSistemaVentasJava/principal.png',
+            alt: 'Dashboard'
+          },
+          {
+            src: './img/proyectoSistemaVentasJava/generarVenta.png',
+            alt: 'Sales Screen'
+          },
+          {
+            src: './img/proyectoSistemaVentasJava/generarVenta1.png',
+            alt: 'Products Management'
+          },{
+            src: './img/proyectoSistemaVentasJava/gestionClientes.png',
+            alt: 'Products Management'
+                        
+          },{
+            src: './img/proyectoSistemaVentasJava/gestionProductos.png',
+            alt: 'Products Management'
+          },{
+            src: './img/proyectoSistemaVentasJava/Factura.png',
+            alt: 'Products Management'}
+        ],
+        'gestion-clientes': [
+          {
+            src: './img/proyectoGestionClientes/LOGIN.png',
+            alt: 'Login Screen'
+          },
+          {
+            src: './img/proyectoGestionClientes/MENU.png',
+            alt: 'Dashboard'
+          },
+          {
+            src: './img/proyectoGestionClientes/REGISTRO CLIENTES.png',
+            alt: 'Client Management'
+          },
+          {
+            src: './img/proyectoGestionClientes/GSTION CLIENTES.png',
+            alt: 'Client Management'
+          },
+          {
+            src: './img/proyectoGestionClientes/GESTION USUARIIS.png',
+            alt: 'Client Management'
+          }
+        ],
+        'carrito-compras': [
+          {
+            src: './img/CarritoCompras/InicioBan.png',
+            alt: 'Home Page'
+          },
+          {
+            src: './img/CarritoCompras/Products.png',
+            alt: 'Products Page'
+          },
+          {
+            src: './img/CarritoCompras/Cart.png',
+            alt: 'Shopping Cart'
+          }
+          ,
+          {
+            src: './img/CarritoCompras/Cart.png',
+            alt: 'Shopping Cart'
+          }
+          
+        ]
+      };
+      
+      // Demo links for projects
+      const projectDemos = {
+        'carrito-compras': './ventasDemo/paginas/index.html' // Replace with your actual demo URL
+      };
+      
+      // Modal and Swiper setup
+      const modal = document.getElementById('imageModal');
+      const closeBtn = document.querySelector('.close-modal');
+      const swiperContainer = document.getElementById('modalSwiper');
+      const demoButton = document.getElementById('demoButton');
+      let swiper;
+      
+      // Initialize Swiper
+      function initSwiper() {
+        swiper = new Swiper('.project-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      }
+      
+      // Load project images into the swiper
+      function loadProjectImages(projectKey) {
+        // Clear previous slides
+        swiperContainer.innerHTML = '';
+        
+        // Check if project exists
+        if (!projectImages[projectKey]) {
+          console.error('Project not found:', projectKey);
+          return;
+        }
+        
+        // Add new slides
+        projectImages[projectKey].forEach(image => {
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide';
+          
+          const img = document.createElement('img');
+          img.src = image.src;
+          img.alt = image.alt;
+          
+          slide.appendChild(img);
+          swiperContainer.appendChild(slide);
+        });
+        
+        // If swiper is already initialized, update it
+        if (swiper) {
+          swiper.destroy();
+        }
+        
+        // Initialize swiper
+        initSwiper();
+        
+        // Show or hide demo button based on project type
+        if (projectDemos[projectKey]) {
+          demoButton.href = projectDemos[projectKey];
+          demoButton.style.display = 'inline-block';
+        } else {
+          demoButton.style.display = 'none';
+        }
+        
+        // Open modal
+        modal.classList.add('active');
+      }
+      
+      // Add click event to portfolio items
+      document.querySelectorAll('.portfolio-content .col').forEach(item => {
+        item.addEventListener('click', function() {
+          const projectKey = this.getAttribute('data-project');
+          
+          // Direct redirection for carrito-compras if needed
+          // Uncomment the following if you want direct redirection instead of gallery
+          /*
+          if (projectKey === 'carrito-compras' && projectDemos[projectKey]) {
+            window.open(projectDemos[projectKey], '_blank');
+            return;
+          }
+          */
+          
+          loadProjectImages(projectKey);
+        });
+      });
+      
+      // Close modal when clicking the close button
+      closeBtn.addEventListener('click', function() {
+        modal.classList.remove('active');
+      });
+      
+      // Close modal when clicking outside of the content
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+      
+      // Close modal with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          modal.classList.remove('active');
+        }
+      });
+    </script>
+  </body>
+</html>

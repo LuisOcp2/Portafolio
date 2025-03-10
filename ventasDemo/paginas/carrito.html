@@ -1,0 +1,576 @@
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Carrito de Compras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script>
+      // Función para actualizar el total y el subtotal
+      function updateTotal() {
+        const quantity = parseInt(document.getElementById("quantity").value);
+        const price = 35512;
+        const subtotal = quantity * price;
+
+        document.getElementById("item-subtotal").textContent =
+          "$" + subtotal.toLocaleString("es-ES");
+        document.getElementById("total-amount").textContent =
+          "$" + subtotal.toLocaleString("es-ES");
+        document.getElementById("item-count").textContent = quantity;
+        document.getElementById("checkout-count").textContent =
+          "(" + quantity + ")";
+
+        // Actualizar mensaje de envío gratuito
+        const freeShippingThreshold = 194388;
+        const remainingForFreeShipping = freeShippingThreshold - subtotal;
+
+        if (remainingForFreeShipping <= 0) {
+          document.getElementById("shipping-message").innerHTML =
+            '<span class="text-green-600 font-semibold">¡ENVÍO ECONÓMICO GRATUITO!</span>';
+        } else {
+          document.getElementById(
+            "shipping-message"
+          ).innerHTML = `<span class="text-green-600">compra $${remainingForFreeShipping.toLocaleString(
+            "es-ES"
+          )} más para disfrutar <strong>ENVÍO ECONÓMICO GRATUITO!</strong></span>`;
+        }
+      }
+
+      // Toggle para el menú móvil
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenu.classList.toggle("hidden");
+      }
+    </script>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-white shadow-md sticky top-0 z-10">
+      <div class="container mx-auto p-4">
+        <div class="flex justify-between items-center">
+          <a
+            class="text-black text-2xl font-bold flex items-center"
+            href="./index.html"
+          >
+            <i class="fas fa-store mr-2"></i> Nuestra Tienda
+          </a>
+
+          <!-- Menú de escritorio -->
+          <nav class="hidden md:flex space-x-6">
+            <a
+              class="text-black hover:text-green-600 transition-colors duration-200 flex items-center"
+              href="./index.html"
+            >
+              <i class="fas fa-home mr-2"></i> Inicio
+            </a>
+            <a
+              class="text-black hover:text-green-600 transition-colors duration-200 flex items-center"
+              href="./productos.html"
+            >
+              <i class="fas fa-box-open mr-2"></i> Productos
+            </a>
+            <a
+              class="text-black hover:text-green-600 transition-colors duration-200 flex items-center font-bold border-b-2 border-green-600"
+              href="./carrito.html"
+            >
+              <i class="fas fa-shopping-cart mr-2"></i> Carrito
+            </a>
+            <a
+              class="text-black hover:text-green-600 transition-colors duration-200 flex items-center"
+              href="./nosotros.html"
+            >
+              <i class="fas fa-users mr-2"></i> Nosotros
+            </a>
+            <a
+              class="text-black hover:text-green-600 transition-colors duration-200 flex items-center"
+              href="./contacto.html"
+            >
+              <i class="fas fa-envelope mr-2"></i> Contacto
+            </a>
+          </nav>
+
+          <!-- Botón menú móvil -->
+          <button
+            class="md:hidden text-black text-xl"
+            onclick="toggleMobileMenu()"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Menú móvil -->
+        <div id="mobile-menu" class="md:hidden hidden mt-4 bg-white border-t">
+          <div class="flex flex-col space-y-3 py-3">
+            <a
+              class="text-black hover:text-green-600 px-4 py-2 transition-colors duration-200"
+              href="./index.html"
+            >
+              <i class="fas fa-home mr-2"></i> Inicio
+            </a>
+            <a
+              class="text-black hover:text-green-600 px-4 py-2 transition-colors duration-200"
+              href="./productos.html"
+            >
+              <i class="fas fa-box-open mr-2"></i> Productos
+            </a>
+            <a
+              class="text-black font-bold bg-gray-100 px-4 py-2"
+              href="./carrito.html"
+            >
+              <i class="fas fa-shopping-cart mr-2"></i> Carrito
+            </a>
+            <a
+              class="text-black hover:text-green-600 px-4 py-2 transition-colors duration-200"
+              href="./nosotros.html"
+            >
+              <i class="fas fa-users mr-2"></i> Nosotros
+            </a>
+            <a
+              class="text-black hover:text-green-600 px-4 py-2 transition-colors duration-200"
+              href="./contacto.html"
+            >
+              <i class="fas fa-envelope mr-2"></i> Contacto
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto my-6 px-4 flex-grow">
+      <h1 class="text-2xl font-bold mb-6 text-gray-800">
+        Mi Carrito de Compras
+      </h1>
+
+      <div class="flex flex-col lg:flex-row lg:space-x-6">
+        <!-- Sección de artículos -->
+        <div class="flex-1 bg-white p-6 rounded-lg shadow-sm">
+          <div class="flex items-center justify-between border-b pb-4 mb-6">
+            <div class="flex items-center">
+              <i class="fas fa-truck text-green-600 mr-2"></i>
+              <span class="text-gray-700 font-medium">Envío:</span>
+            </div>
+            <div id="shipping-message">
+              <span class="text-green-600"
+                >compra $194.388 más para disfrutar
+                <strong>ENVÍO ECONÓMICO GRATUITO!</strong></span
+              >
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between border-b pb-4 mb-6">
+            <div class="flex items-center">
+              <input
+                checked
+                class="form-checkbox h-5 w-5 text-green-600 rounded"
+                type="checkbox"
+              />
+              <span class="ml-2 text-gray-800 font-semibold">
+                TODOS LOS ARTÍCULOS (<span id="item-count">1</span>)
+              </span>
+            </div>
+            <button
+              class="text-green-600 hover:text-green-800 transition-colors duration-200"
+            >
+              <i class="fas fa-plus-circle mr-1"></i> Añadir más
+            </button>
+          </div>
+
+          <div
+            class="border-b pb-4 mb-6 flex flex-wrap items-center justify-between"
+          >
+            <span class="text-gray-700 mb-2 md:mb-0"
+              >Añade artículos adicionales</span
+            >
+            <button
+              class="bg-black hover:bg-gray-800 text-white px-6 py-2 rounded transition-colors duration-200 flex items-center"
+            >
+              <i class="fas fa-search mr-2"></i> Explorar productos
+            </button>
+          </div>
+
+          <!-- Producto en el carrito -->
+          <div
+            class="flex flex-col md:flex-row md:items-center justify-between border-b pb-6 mb-4"
+          >
+            <div class="flex items-start md:w-2/3">
+              <input
+                checked
+                class="form-checkbox h-5 w-5 text-green-600 rounded mt-8"
+                type="checkbox"
+              />
+              <div class="relative group ml-4">
+                <img
+                  alt="Camiseta Manfinity Homme"
+                  class="h-20 w-20 object-cover rounded-md"
+                  src="https://storage.googleapis.com/a1aa/image/JTIxpl-pVg1rEsnBGpwklOpaYU-jAYBFFsoMDjRHSbM.jpg"
+                />
+                <div
+                  class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-md"
+                >
+                  <button class="text-white">
+                    <i class="fas fa-search-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="ml-4">
+                <span class="block text-gray-800 font-semibold mb-1">
+                  ManfinityHomme Store
+                </span>
+                <a
+                  href="#"
+                  class="block text-gray-700 hover:text-green-600 transition-colors duration-200 line-clamp-2"
+                >
+                  Manfinity Homme Camiseta Casual Con Cuello Redondo Y Manga
+                  Corta Con Estampado De Letras Para Hombre
+                </a>
+                <div class="flex items-center mt-2">
+                  <span class="text-gray-600">
+                    <i class="fas fa-tshirt mr-1"></i> Gris / M
+                  </span>
+                  <span class="ml-4 text-gray-600 flex items-center">
+                    <i class="fas fa-star text-yellow-400 mr-1"></i>
+                    500+ usuarios le dieron 5-estrellas
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-right mt-4 md:mt-0 md:w-1/3">
+              <div class="flex items-center justify-end">
+                <span
+                  class="block text-red-600 font-semibold text-xl"
+                  id="item-subtotal"
+                  >$35.512</span
+                >
+                <span class="block text-gray-400 line-through ml-2"
+                  >$44.390</span
+                >
+              </div>
+              <span
+                class="inline-block px-2 py-1 bg-orange-100 text-orange-600 rounded-md text-sm mt-1"
+                >-20%</span
+              >
+              <div class="flex items-center justify-end mt-4">
+                <label class="mr-2 text-gray-700" for="quantity"
+                  >Cantidad:</label
+                >
+                <select
+                  class="border border-gray-300 rounded px-3 py-1 bg-white focus:border-green-500 focus:ring-1 focus:ring-green-500 focus:outline-none"
+                  id="quantity"
+                  onchange="updateTotal()"
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <button
+                  class="ml-4 text-gray-500 hover:text-red-500 transition-colors duration-200"
+                  title="Añadir a favoritos"
+                >
+                  <i class="far fa-heart text-lg"></i>
+                </button>
+                <button
+                  class="ml-4 text-gray-500 hover:text-red-500 transition-colors duration-200"
+                  title="Eliminar del carrito"
+                >
+                  <i class="fas fa-trash text-lg"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center mt-6">
+            <button
+              class="text-green-600 hover:text-green-800 transition-colors duration-200 flex items-center"
+            >
+              <i class="fas fa-arrow-left mr-2"></i> Seguir comprando
+            </button>
+
+            <button
+              class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded shadow-sm transition-colors duration-200 flex items-center"
+            >
+              <i class="fas fa-sync-alt mr-2"></i> Actualizar carrito
+            </button>
+          </div>
+        </div>
+
+        <!-- Resumen de pedido -->
+        <div
+          class="w-full lg:w-1/3 bg-white p-6 rounded-lg shadow-sm mt-6 lg:mt-0 sticky top-24 self-start"
+        >
+          <h2 class="text-xl text-gray-800 font-semibold mb-6 border-b pb-3">
+            Resumen Del Pedido
+          </h2>
+
+          <div class="flex items-center mb-6 pb-4 border-b">
+            <img
+              alt="Camiseta Manfinity Homme"
+              class="h-16 w-16 object-cover rounded-md"
+              src="https://storage.googleapis.com/a1aa/image/JTIxpl-pVg1rEsnBGpwklOpaYU-jAYBFFsoMDjRHSbM.jpg"
+            />
+            <div class="ml-4">
+              <span class="block text-gray-700 text-sm"
+                >Precio al por menor:</span
+              >
+              <span class="block text-gray-800 font-medium">$44.390</span>
+            </div>
+          </div>
+
+          <div class="space-y-4 mb-6">
+            <div class="flex items-center justify-between">
+              <span class="text-gray-700">Subtotal:</span>
+              <span class="text-gray-800 font-semibold">$44.390</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-gray-700">Promociones:</span>
+              <span class="text-red-600">-$8.878</span>
+            </div>
+
+            <div
+              class="flex items-center justify-between border-t border-b py-4 my-4"
+            >
+              <span class="text-gray-800 font-medium">Total:</span>
+              <span class="text-red-600 font-bold text-xl" id="total-amount"
+                >$35.512</span
+              >
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-gray-700">
+                <i class="fas fa-award text-yellow-500 mr-1"></i> Premio:
+              </span>
+              <span class="text-gray-800 font-medium">8 Puntos SHEIN</span>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <div class="flex items-center bg-gray-50 p-3 rounded-md mb-4">
+              <i class="fas fa-tag text-green-600 mr-2"></i>
+              <input
+                type="text"
+                placeholder="Código de descuento"
+                class="flex-grow bg-transparent border-0 focus:outline-none text-gray-700"
+              />
+              <button class="text-green-600 font-medium">Aplicar</button>
+            </div>
+          </div>
+
+          <button
+            class="w-full bg-black hover:bg-gray-800 text-white py-3 rounded-md font-semibold mb-4 transition-colors duration-200 flex items-center justify-center"
+          >
+            <i class="fas fa-lock mr-2"></i> Pagar ahora
+            <span id="checkout-count">(1)</span>
+          </button>
+
+          <p class="text-gray-600 text-sm mt-4 text-center">
+            <i class="fas fa-info-circle mr-1"></i> El código de descuento y los
+            puntos SHEIN, serán aplicados en el siguiente paso.
+          </p>
+
+          <div class="mt-6">
+            <h3 class="text-gray-800 font-semibold mb-3">ACEPTAMOS</h3>
+            <div class="flex flex-wrap gap-2 justify-center">
+              <img
+                alt="Visa"
+                class="h-8"
+                src="https://storage.googleapis.com/a1aa/image/l4yVDRhzO3oNCK9D1BAWS2wzgmqSe2R3YPhPZxiUvbc.jpg"
+              />
+              <img
+                alt="Mastercard"
+                class="h-8"
+                src="https://storage.googleapis.com/a1aa/image/ouK-SkmLVcJ9EX73KGo4qGeSADEJcXqWBv9ghW8wpgA.jpg"
+              />
+              <img
+                alt="American Express"
+                class="h-8"
+                src="https://storage.googleapis.com/a1aa/image/DvEyxx-MHGVeGkqQNfuzVMcykT9PwHpPnyl8LGXgEIM.jpg"
+              />
+              <img
+                alt="Diners Club"
+                class="h-8"
+                src="https://storage.googleapis.com/a1aa/image/ioWAuSwKHz0eQQgPWk_T_FJP6BFZHBzdrjx15o8HExM.jpg"
+              />
+              <img
+                alt="Discover"
+                class="h-8"
+                src="https://storage.googleapis.com/a1aa/image/7uHYrFI-a0D7GLNMYWbZTbo3dK8h6AO2wF9NkdThfSw.jpg"
+              />
+              <img
+                alt="Cabal"
+                class="h-8"
+                src="https://storage.googleapis.com/a1aa/image/U-1aBB3ye-3SGWuLs6amejd9nYLzju9xzvWAA_QPq2E.jpg"
+              />
+              <img
+                alt="PayPal"
+                class="h-8"
+                src="https://storage.googleapis.com/a1aa/image/vqgMNOjC6wZMGWz5d1bDIbHi8JGmKAkf7e0_E5Yv1Zw.jpg"
+              />
+              <img
+                alt="Apple Pay"
+                class="h-8"
+                src="https://storage.googleapis.com/a1aa/image/uAF35YIPk-indPwgY4dHRYipfb3pjhEZZAIUVu72lnk.jpg"
+              />
+            </div>
+          </div>
+
+          <div class="mt-6 bg-green-50 p-4 rounded-md">
+            <div class="flex items-start">
+              <i class="fas fa-shield-alt text-green-600 mt-1 mr-3"></i>
+              <div>
+                <p class="text-sm text-gray-700">
+                  Compra segura garantizada. Todos los pagos están protegidos
+                  con encriptación SSL.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-12 py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between">
+          <div class="mb-6 md:mb-0">
+            <h3 class="text-xl font-bold mb-4">Nuestra Tienda</h3>
+            <p class="text-gray-300 max-w-md">
+              Tu destino para moda con estilo a precios accesibles. Envíos a
+              todo el país.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div>
+              <h4 class="font-semibold mb-3">Enlaces</h4>
+              <ul class="space-y-2 text-gray-300">
+                <li>
+                  <a href="./index.html" class="hover:text-white">Inicio</a>
+                </li>
+                <li>
+                  <a href="./productos.html" class="hover:text-white"
+                    >Productos</a
+                  >
+                </li>
+                <li>
+                  <a href="./carrito.html" class="hover:text-white font-medium"
+                    >Carrito</a
+                  >
+                </li>
+                <li>
+                  <a href="./nosotros.html" class="hover:text-white"
+                    >Nosotros</a
+                  >
+                </li>
+                <li>
+                  <a href="./contacto.html" class="hover:text-white"
+                    >Contacto</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-3">Ayuda</h4>
+              <ul class="space-y-2 text-gray-300">
+                <li><a href="#" class="hover:text-white">FAQs</a></li>
+                <li><a href="#" class="hover:text-white">Envíos</a></li>
+                <li><a href="#" class="hover:text-white">Devoluciones</a></li>
+                <li><a href="#" class="hover:text-white">Formas de pago</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-3">Contacto</h4>
+              <ul class="space-y-2 text-gray-300">
+                <li class="flex items-center">
+                  <i class="fas fa-envelope mr-2"></i> info@nuestratienda.com
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-phone mr-2"></i> +54 11 1234-5678
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-map-marker-alt mr-2"></i> Buenos Aires,
+                  Argentina
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm">
+            &copy; 2025 Nuestra Tienda. Todos los derechos reservados.
+          </p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-gray-400 hover:text-white text-lg"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a href="#" class="text-gray-400 hover:text-white text-lg"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="text-gray-400 hover:text-white text-lg"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="text-gray-400 hover:text-white text-lg"
+              ><i class="fab fa-pinterest"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Inicializar valores
+      function updateTotal() {
+        // Obtiene la cantidad seleccionada del menú desplegable
+        const quantity = parseInt(document.getElementById("quantity").value);
+
+        // Precio base por unidad (35512 pesos)
+        const price = 35512;
+
+        // Calcula el subtotal multiplicando el precio por la cantidad
+        const subtotal = quantity * price;
+
+        // Actualiza el subtotal del ítem en la interfaz
+        document.getElementById("item-subtotal").textContent =
+          "$" + subtotal.toLocaleString("es-ES");
+
+        // Actualiza el monto total en el resumen del pedido
+        document.getElementById("total-amount").textContent =
+          "$" + subtotal.toLocaleString("es-ES");
+
+        // Actualiza el contador de ítems en "TODOS LOS ARTÍCULOS (X)"
+        document.getElementById("item-count").textContent = quantity;
+
+        // Actualiza el número de ítems en el botón de pago
+        document.getElementById("checkout-count").textContent =
+          "(" + quantity + ")";
+
+        // Actualiza mensaje de envío gratuito
+        const freeShippingThreshold = 194388; // Umbral para envío gratuito
+        const remainingForFreeShipping = freeShippingThreshold - subtotal;
+
+        // Si ya alcanzó el umbral, muestra mensaje de envío gratuito
+        if (remainingForFreeShipping <= 0) {
+          document.getElementById("shipping-message").innerHTML =
+            '<span class="text-green-600 font-semibold">¡ENVÍO ECONÓMICO GRATUITO!</span>';
+        } else {
+          // Si no ha alcanzado el umbral, muestra cuánto falta para envío gratuito
+          document.getElementById(
+            "shipping-message"
+          ).innerHTML = `<span class="text-green-600">compra $${remainingForFreeShipping.toLocaleString(
+            "es-ES"
+          )} más para disfrutar <strong>ENVÍO ECONÓMICO GRATUITO!</strong></span>`;
+        }
+      }
+      updateTotal();
+    </script>
+  </body>
+</html>

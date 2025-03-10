@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Contacto | Nuestra Tienda</title>
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("/api/placeholder/1200/400");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .contact-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .social-icon {
+        transition: all 0.3s ease;
+      }
+
+      .social-icon:hover {
+        transform: scale(1.1);
+      }
+
+      .input-field {
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .input-field:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease forwards;
+        opacity: 0;
+      }
+
+      .reveal-delay-1 {
+        animation-delay: 0.1s;
+      }
+
+      .reveal-delay-2 {
+        animation-delay: 0.2s;
+      }
+
+      .reveal-delay-3 {
+        animation-delay: 0.3s;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans text-gray-800">
+    <!-- Header con menú hamburguesa para móviles -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-3">
+          <a
+            class="text-black text-2xl font-bold flex items-center"
+            href="./index.html"
+          >
+            <i class="fas fa-store text-indigo-600 mr-2"></i>
+            <span>Nuestra Tienda</span>
+          </a>
+
+          <!-- Menú para pantallas medianas y grandes -->
+          <nav class="hidden md:flex space-x-6">
+            <a
+              class="text-gray-700 hover:text-indigo-600 transition duration-300 flex items-center"
+              href="./index.html"
+            >
+              <i class="fas fa-home mr-1"></i> Inicio
+            </a>
+            <a
+              class="text-gray-700 hover:text-indigo-600 transition duration-300 flex items-center"
+              href="./productos.html"
+            >
+              <i class="fas fa-box-open mr-1"></i> Productos
+            </a>
+            <a
+              class="text-gray-700 hover:text-indigo-600 transition duration-300 flex items-center"
+              href="./carrito.html"
+            >
+              <i class="fas fa-shopping-cart mr-1"></i> Carrito
+            </a>
+            <a
+              class="text-gray-700 hover:text-indigo-600 transition duration-300 flex items-center"
+              href="./nosotros.html"
+            >
+              <i class="fas fa-users mr-1"></i> Nosotros
+            </a>
+            <a
+              class="text-indigo-600 font-semibold border-b-2 border-indigo-600 flex items-center"
+              href="./contacto.html"
+            >
+              <i class="fas fa-envelope mr-1"></i> Contacto
+            </a>
+          </nav>
+
+          <!-- Botón de menú hamburguesa para móviles -->
+          <button
+            id="menu-toggle"
+            class="md:hidden text-gray-700 focus:outline-none"
+          >
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+
+        <!-- Menú móvil desplegable -->
+        <nav id="mobile-menu" class="md:hidden hidden pb-4 animate-fade-in">
+          <a
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded"
+            href="./index.html"
+          >
+            <i class="fas fa-home mr-2"></i> Inicio
+          </a>
+          <a
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded"
+            href="./productos.html"
+          >
+            <i class="fas fa-box-open mr-2"></i> Productos
+          </a>
+          <a
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded"
+            href="./carrito.html"
+          >
+            <i class="fas fa-shopping-cart mr-2"></i> Carrito
+          </a>
+          <a
+            class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded"
+            href="./nosotros.html"
+          >
+            <i class="fas fa-users mr-2"></i> Nosotros
+          </a>
+          <a
+            class="block py-2 px-4 bg-indigo-100 text-indigo-700 rounded font-medium"
+            href="./contacto.html"
+          >
+            <i class="fas fa-envelope mr-2"></i> Contacto
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero-bg text-white py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
+          Contacta con Nosotros
+        </h1>
+        <p class="text-xl md:max-w-2xl mx-auto animate-fade-in reveal-delay-1">
+          Estamos aquí para atender tus consultas, escuchar tus comentarios y
+          ayudarte en lo que necesites.
+        </p>
+      </div>
+    </section>
+
+    <main class="container mx-auto p-4 py-8">
+      <!-- Opciones de contacto -->
+      <section class="mb-12 animate-fade-in reveal-delay-2">
+        <h2 class="text-3xl font-bold text-center mb-8">
+          ¿Cómo podemos ayudarte?
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="contact-card bg-white p-6 rounded-lg shadow-md text-center"
+          >
+            <div
+              class="bg-indigo-100 text-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-phone-alt text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Llámanos</h3>
+            <p class="text-gray-600 mb-4">
+              Nuestro equipo está disponible para atenderte de lunes a viernes
+              de 9:00 a 18:00 horas.
+            </p>
+            <a
+              href="tel:+123456789"
+              class="text-indigo-600 font-medium hover:text-indigo-800 transition flex items-center justify-center"
+            >
+              <i class="fas fa-phone-alt mr-2"></i> +123 456 789
+            </a>
+          </div>
+          <div
+            class="contact-card bg-white p-6 rounded-lg shadow-md text-center"
+          >
+            <div
+              class="bg-indigo-100 text-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-envelope text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Escríbenos</h3>
+            <p class="text-gray-600 mb-4">
+              Envíanos un correo electrónico y te responderemos a la brevedad
+              posible.
+            </p>
+            <a
+              href="mailto:contacto@nuestratienda.com"
+              class="text-indigo-600 font-medium hover:text-indigo-800 transition flex items-center justify-center"
+            >
+              <i class="fas fa-envelope mr-2"></i> contacto@nuestratienda.com
+            </a>
+          </div>
+          <div
+            class="contact-card bg-white p-6 rounded-lg shadow-md text-center"
+          >
+            <div
+              class="bg-indigo-100 text-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-map-marker-alt text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Visítanos</h3>
+            <p class="text-gray-600 mb-4">
+              Encuéntranos en nuestra tienda principal para atención
+              personalizada.
+            </p>
+            <address
+              class="not-italic text-indigo-600 font-medium hover:text-indigo-800 transition flex items-center justify-center"
+            >
+              <i class="fas fa-map-marker-alt mr-2"></i> Av. Principal 123,
+              Ciudad
+            </address>
+          </div>
+        </div>
+      </section>
+
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Formulario de contacto mejorado -->
+        <section
+          id="contact-form"
+          class="bg-white rounded-lg shadow-md p-6 mb-4 lg:w-2/3 animate-fade-in reveal-delay-2"
+        >
+          <h2 class="text-2xl font-bold mb-6">Envíanos un mensaje</h2>
+          <form id="contactForm" action="#" method="post" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-gray-700 mb-2 font-medium"
+                  >Nombre completo</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Tu nombre"
+                  class="w-full p-3 border border-gray-300 rounded-lg input-field focus:outline-none"
+                  required
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-gray-700 mb-2 font-medium"
+                  >Correo electrónico</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="ejemplo@correo.com"
+                  class="w-full p-3 border border-gray-300 rounded-lg input-field focus:outline-none"
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <label for="subject" class="block text-gray-700 mb-2 font-medium"
+                >Asunto</label
+              >
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="¿Sobre qué quieres contactarnos?"
+                class="w-full p-3 border border-gray-300 rounded-lg input-field focus:outline-none"
+                required
+              />
+            </div>
+            <div>
+              <label for="message" class="block text-gray-700 mb-2 font-medium"
+                >Mensaje</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Escribe tu mensaje aquí..."
+                class="w-full p-3 border border-gray-300 rounded-lg input-field focus:outline-none"
+                required
+              ></textarea>
+            </div>
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                class="mr-2 h-5 w-5"
+                required
+              />
+              <label for="terms" class="text-gray-700">
+                He leído y acepto la
+                <a href="#" class="text-indigo-600 hover:underline"
+                  >política de privacidad</a
+                >
+              </label>
+            </div>
+            <div class="text-right">
+              <button
+                type="submit"
+                id="submitBtn"
+                class="bg-indigo-600 text-white py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300 inline-flex items-center"
+              >
+                <span>Enviar mensaje</span>
+                <i class="fas fa-paper-plane ml-2"></i>
+              </button>
+            </div>
+          </form>
+          <!-- Mensaje de éxito (inicialmente oculto) -->
+          <div
+            id="successMessage"
+            class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg"
+          >
+            <i class="fas fa-check-circle mr-2"></i> Tu mensaje ha sido enviado
+            correctamente. Nos pondremos en contacto contigo pronto.
+          </div>
+        </section>
+
+        <!-- Horarios y mapa -->
+        <section class="lg:w-1/3 animate-fade-in reveal-delay-3">
+          <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h3 class="text-xl font-bold mb-4">Horario de atención</h3>
+            <ul class="space-y-2">
+              <li class="flex justify-between">
+                <span class="text-gray-600">Lunes - Viernes:</span>
+                <span class="font-medium">9:00 - 18:00</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="text-gray-600">Sábado:</span>
+                <span class="font-medium">10:00 - 14:00</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="text-gray-600">Domingo:</span>
+                <span class="font-medium">Cerrado</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-4">Nuestra ubicación</h3>
+              <p class="text-gray-600 mb-4">
+                Visítanos en nuestra tienda principal. Contamos con
+                estacionamiento gratuito para nuestros clientes.
+              </p>
+            </div>
+            <!-- Placeholder para un mapa -->
+            <div class="w-full h-64 bg-gray-300 relative">
+              <img
+                src="/api/placeholder/600/300"
+                alt="Mapa de ubicación"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="bg-white px-4 py-2 rounded-lg shadow font-medium">
+                  <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
+                  Nuestra Tienda
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sección de redes sociales mejorada -->
+      <section
+        id="social-media"
+        class="bg-white p-6 rounded-lg shadow-md mt-8 animate-fade-in reveal-delay-3"
+      >
+        <h2 class="text-2xl font-bold text-center mb-6">
+          Síguenos en redes sociales
+        </h2>
+        <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+          Mantente al día con nuestras novedades, promociones y contenido
+          exclusivo siguiéndonos en nuestras redes sociales.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://www.facebook.com/nuestratienda"
+            class="social-icon flex items-center bg-white border border-gray-300 text-gray-700 py-3 px-5 rounded-lg hover:bg-blue-600 hover:text-white hover:border-blue-600"
+          >
+            <i class="fab fa-facebook-f text-xl mr-3"></i>
+            <span>Facebook</span>
+          </a>
+          <a
+            href="https://www.instagram.com/nuestratienda"
+            class="social-icon flex items-center bg-white border border-gray-300 text-gray-700 py-3 px-5 rounded-lg hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white hover:border-pink-500"
+          >
+            <i class="fab fa-instagram text-xl mr-3"></i>
+            <span>Instagram</span>
+          </a>
+          <a
+            href="https://twitter.com/nuestratienda"
+            class="social-icon flex items-center bg-white border border-gray-300 text-gray-700 py-3 px-5 rounded-lg hover:bg-blue-400 hover:text-white hover:border-blue-400"
+          >
+            <i class="fab fa-twitter text-xl mr-3"></i>
+            <span>Twitter</span>
+          </a>
+          <a
+            href="https://www.youtube.com/nuestratienda"
+            class="social-icon flex items-center bg-white border border-gray-300 text-gray-700 py-3 px-5 rounded-lg hover:bg-red-600 hover:text-white hover:border-red-600"
+          >
+            <i class="fab fa-youtube text-xl mr-3"></i>
+            <span>YouTube</span>
+          </a>
+          <a
+            href="https://wa.me/1234567890"
+            class="social-icon flex items-center bg-white border border-gray-300 text-gray-700 py-3 px-5 rounded-lg hover:bg-green-500 hover:text-white hover:border-green-500"
+          >
+            <i class="fab fa-whatsapp text-xl mr-3"></i>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- FAQ sección -->
+      <section
+        class="bg-white rounded-lg shadow-md p-6 mt-8 animate-fade-in reveal-delay-3"
+      >
+        <h2 class="text-2xl font-bold mb-6">Preguntas frecuentes</h2>
+        <div class="space-y-4">
+          <div class="border rounded-lg overflow-hidden">
+            <button
+              class="w-full text-left p-4 bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center focus:outline-none"
+              onclick="toggleFaq(this)"
+            >
+              <span class="font-medium"
+                >¿Cuánto tiempo tardan en responder a las consultas?</span
+              >
+              <i
+                class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-content p-4 bg-white hidden">
+              <p class="text-gray-700">
+                Nos comprometemos a responder todas las consultas en un plazo
+                máximo de 24 horas laborables. Para asuntos urgentes, te
+                recomendamos contactarnos por teléfono.
+              </p>
+            </div>
+          </div>
+          <div class="border rounded-lg overflow-hidden">
+            <button
+              class="w-full text-left p-4 bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center focus:outline-none"
+              onclick="toggleFaq(this)"
+            >
+              <span class="font-medium"
+                >¿Cómo puedo hacer un seguimiento de mi pedido?</span
+              >
+              <i
+                class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-content p-4 bg-white hidden">
+              <p class="text-gray-700">
+                Puedes hacer seguimiento de tu pedido ingresando a tu cuenta en
+                nuestra web o utilizando el número de seguimiento que enviamos a
+                tu correo electrónico tras confirmar la compra.
+              </p>
+            </div>
+          </div>
+          <div class="border rounded-lg overflow-hidden">
+            <button
+              class="w-full text-left p-4 bg-gray-50 hover:bg-gray-100 transition-colors flex justify-between items-center focus:outline-none"
+              onclick="toggleFaq(this)"
+            >
+              <span class="font-medium"
+                >¿Tienen atención personalizada para empresas?</span
+              >
+              <i
+                class="fas fa-chevron-down text-indigo-600 transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="faq-content p-4 bg-white hidden">
+              <p class="text-gray-700">
+                Sí, contamos con un departamento especializado en atención a
+                empresas. Para más información, puedes contactarnos a través de
+                empresas@nuestratienda.com o llamar a nuestro número de atención
+                a empresas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="bg-indigo-600 text-white py-12">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">¿Listo para comenzar?</h2>
+        <p class="text-xl mb-6 max-w-2xl mx-auto">
+          Explora nuestra amplia selección de productos y descubre por qué miles
+          de clientes confían en nosotros.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="./productos.html"
+            class="bg-white text-indigo-600 font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition duration-300"
+            >Ver Productos</a
+          >
+          <a
+            href="./nosotros.html"
+            class="bg-transparent border-2 border-white text-white font-semibold py-3 px-6 rounded-lg hover:bg-white hover:text-indigo-600 transition duration-300"
+            >Conócenos</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer mejorado -->
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Nuestra Tienda</h3>
+            <p class="text-gray-300 mb-4">
+              Ofreciendo productos de calidad y un servicio excepcional desde
+              2018.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-300 hover:text-white transition duration-300"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-300 hover:text-white transition duration-300"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-300 hover:text-white transition duration-300"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-300 hover:text-white transition duration-300"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Enlaces</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="./index.html"
+                  class="text-gray-300 hover:text-white transition duration-300"
+                  >Inicio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./productos.html"
+                  class="text-gray-300 hover:text-white transition duration-300"
+                  >Productos</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./nosotros.html"
+                  class="text-gray-300 hover:text-white transition duration-300"
+                  >Nosotros</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./contacto.html"
+                  class="text-gray-300 hover:text-white transition duration-300"
+                  >Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Contacto</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                <span>Av. Principal 123, Ciudad Central</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-phone mt-1 mr-2"></i>
+                <span>+123 456 789</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-envelope mt-1 mr-2"></i>
+                <span>contacto@nuestratienda.com</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Newsletter</h3>
+            <p class="text-gray-300 mb-4">
+              Suscríbete para recibir novedades y ofertas especiales.
+            </p>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="Tu email"
+                class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-800"
+              />
+              <button
+                type="submit"
+                class="bg-indigo-600 hover:bg-indigo-700 transition duration-300 px-4 py-2 rounded-r"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+          <p>&copy; 2025 Nuestra Tienda. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Menú móvil toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          const mobileMenu = document.getElementById("mobile-menu");
+          mobileMenu.classList.toggle("hidden");
+        });
+
+      // FAQ toggle
+      function toggleFaq(button) {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector("i");
+
+        // Cerrar todos los otros FAQs
+        document.querySelectorAll(".faq-content").forEach((item) => {
+          if (item !== content) {
+            item.classList.add("hidden");
+          }
+        });
+
+        document.querySelectorAll(".faq-item button i").forEach((i) => {
+          if (i !== icon) {
+            i.style.transform = "rotate(0deg)";
+          }
+        });
+
+        // Toggle actual FAQ
+        content.classList.toggle("hidden");
+
+        if (!content.classList.contains("hidden")) {
+          icon.style.transform = "rotate(180deg)";
+        } else {
+          icon.style.transform = "rotate(0deg)";
+        }
+      }
+
+      // Formulario de contacto - validación y envío simulado
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const submitBtn = document.getElementById("submitBtn");
+          const form = document.getElementById("contactForm");
+          const successMessage = document.getElementById("successMessage");
+
+          // Simular envío
+          submitBtn.disabled = true;
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin mr-2"></i> Enviando...';
+
+          // Simular tiempo de procesamiento
+          setTimeout(function () {
+            form.style.display = "none";
+            successMessage.classList.remove("hidden");
+            successMessage.classList.add("animate-fade-in");
+
+            // Reset form after submission
+            form.reset();
+          }, 1500);
+        });
+
+      // Animación al cargar la página
+      document.addEventListener("DOMContentLoaded", function () {
+        const fadeElements = document.querySelectorAll(".animate-fade-in");
+        fadeElements.forEach((el, index) => {
+          setTimeout(() => {
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }, 100 * index);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@layer components {
+  .typography {
+    color: var(--color-gray-950);
+    a {
+      color: var(--color-blue-500);
+      &:hover {
+        color: var(--color-blue-800);
+      }
+    }
+  }
+}
+
+.bg-custom-purple {
+  background-color: #9411d1;
+}
+
+a \:bg-custom-hover:hover {
+  background-color: #670aba;
+}
